@@ -1,0 +1,15 @@
+.input {
+  width: 377px;
+  margin-right: 12px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.p {
+    margin-top: 4px;
+    margin-left: 16px;
+    text-align: left;
+}
