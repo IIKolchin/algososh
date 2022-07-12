@@ -13,3 +13,14 @@
     margin-left: 16px;
     text-align: left;
 }
+
+.str {
+  display: flex;
+  justify-content: center;
+  margin-top: 146px;
+}
+
+.circle {
+  list-style: none;
+  margin-right: 16px;
+}
