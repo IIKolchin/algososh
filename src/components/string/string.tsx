@@ -33,7 +33,7 @@ export const StringComponent: React.FC = () => {
     let end = wordArray.length - 1;
     while (start <= end) {
       setIsLoader(true);
-      setIsDisabled(true)
+      setIsDisabled(true);
       setFirstIndex(start);
       setSecondIndex(end);
       await delay(DELAY_IN_MS);
@@ -46,7 +46,7 @@ export const StringComponent: React.FC = () => {
     setFirstIndex(100);
     setSecondIndex(100);
     setIsLoader(false);
-    setIsDisabled(false)
+    setIsDisabled(false);
   };
 
   const changeColor = (start: number, end: number, index: number) => {
@@ -62,15 +62,14 @@ export const StringComponent: React.FC = () => {
   return (
     <SolutionLayout title='Строка'>
       <div className={styles.container}>
-        <div className={styles.input}>
-          <Input
-            maxLength={11}
-            onChange={onChange}
-            value={input}
-            name={'text'}
-            isLimitText
-          />
-        </div>
+        <Input
+          maxLength={11}
+          extraClass={styles.inputs}
+          onChange={onChange}
+          value={input}
+          name={'text'}
+          isLimitText
+        />
         <Button
           text='Развернуть'
           onClick={() => reverseWord(input)}
