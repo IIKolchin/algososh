@@ -54,11 +54,11 @@ export const StringComponent: React.FC = () => {
       return ElementStates.Changing;
     } else if (start >= index || end <= index) {
       return ElementStates.Modified;
-    } else if (start === 100 || end === 100) {
+    } else if (start === 1000 || end === 1000) {
       return ElementStates.Modified;
     }
   };
-
+  
   return (
     <SolutionLayout title='Строка'>
       <div className={styles.container}>

@@ -1,0 +1,36 @@
+.container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  max-width: 924px;
+}
+
+.radioChoice {
+    margin-right: 40px;
+}
+
+.radioBubble {
+    margin-right: 52px;
+}
+
+.ascending {
+    margin-right: 12px;
+}
+
+.descending {
+    margin-right: 80px;
+}
+
+.ul {
+    padding: 0;
+    height: 320px;
+    margin-top: 48px;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.column {
+margin-right: 10px;
+}
