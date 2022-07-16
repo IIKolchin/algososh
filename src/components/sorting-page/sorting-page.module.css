@@ -6,31 +6,33 @@
 }
 
 .radioChoice {
-    margin-right: 40px;
+  margin-right: 38px;
 }
 
 .radioBubble {
-    margin-right: 52px;
+  margin-right: 52px;
 }
 
 .ascending {
-    margin-right: 12px;
+  margin-right: 12px;
+  width: 208px;
 }
 
 .descending {
-    margin-right: 80px;
+  margin-right: 80px;
+  width: 186px;
 }
 
 .ul {
-    padding: 0;
-    height: 320px;
-    margin-top: 48px;
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    align-items: flex-end;
+  padding: 0;
+  height: 320px;
+  margin-top: 48px;
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .column {
-margin-right: 10px;
+  margin-right: 10px;
 }
