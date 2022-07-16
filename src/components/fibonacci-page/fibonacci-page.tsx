@@ -35,6 +35,8 @@ export const FibonacciPage: React.FC = () => {
     setIsDisabled(false);
   };
 
+  const style = numberArr.length > 9 ? {justifyContent: 'start'} : {justifyContent: 'center'}
+
   return (
     <SolutionLayout title='Последовательность Фибоначчи'>
       <div className={styles.container}>
@@ -54,7 +56,7 @@ export const FibonacciPage: React.FC = () => {
           isLoader={isLoader}
         />
       </div>
-      <ul className={styles.str}>
+      <ul className={styles.str} style={style}>
         {numberArr.map((el, index) => {
           return (
             <li key={index} className={styles.circle}>

@@ -1,0 +1,31 @@
+.inputs {
+    width: 377px;
+    margin-right: 12px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .add {
+      margin-right: 12px;
+  }
+
+  .delete {
+      margin-right: 80px;
+  }
+
+.str {
+  width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 60px;
+}
+
+  .circle {
+    list-style: none;
+    margin-right: 16px;
+  }
