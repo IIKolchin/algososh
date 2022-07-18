@@ -17,7 +17,7 @@ type Tarr = {
 };
 
 export const QueuePage: React.FC = () => {
-  const qLength = 4;
+  const qLength = 7;
   const queue = new Queue<string>(qLength);
   const [q, setQ] = useState(queue);
   const [input, setInput] = useState('');
