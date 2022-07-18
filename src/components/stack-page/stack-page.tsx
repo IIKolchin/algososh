@@ -25,6 +25,7 @@ export const StackPage: React.FC = () => {
   const [isLoaderAdd, setIsLoaderAdd] = useState(false);
   const [isLoaderDel, setIsLoaderDel] = useState(false);
   const [isLoaderClear, setIsLoaderClear] = useState(false);
+  const [isDisabledInput, setIsDisabledInput] = useState(false);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -39,7 +40,9 @@ export const StackPage: React.FC = () => {
   }, [arr]);
 
   const addStack = async () => {
+    setInput('');
     setIsLoaderAdd(true);
+    setIsDisabledInput(true);
     stack.push(input);
     arr.forEach((el) => (el.head = ''));
     arr.push({ value: stack.peak() as number, head: '' });
@@ -48,9 +51,9 @@ export const StackPage: React.FC = () => {
     setArr([...arr]);
     await delay(SHORT_DELAY_IN_MS);
     arr[arr.length - 1].color = ElementStates.Default;
-    setInput('');
     setIsDisabledAdd(true);
     setIsLoaderAdd(false);
+    setIsDisabledInput(false);
   };
 
   const deleteStack = async () => {
@@ -95,6 +98,7 @@ export const StackPage: React.FC = () => {
           value={input}
           name={'text'}
           isLimitText
+          disabled={isDisabledInput}
         />
         <Button
           text='Добавить'
@@ -123,9 +127,9 @@ export const StackPage: React.FC = () => {
           return (
             <li key={index} className={styles.circle}>
               <Circle
-                // state={el.color}
-                // letter={String(el.value)}
-                // head={String(el.head)}
+                state={el.color}
+                letter={String(el.value)}
+                head={String(el.head)}
                 index={index}
               />
             </li>
