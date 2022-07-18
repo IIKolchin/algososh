@@ -123,9 +123,9 @@ export const StackPage: React.FC = () => {
           return (
             <li key={index} className={styles.circle}>
               <Circle
-                state={el.color}
-                letter={String(el.value)}
-                head={String(el.head)}
+                // state={el.color}
+                // letter={String(el.value)}
+                // head={String(el.head)}
                 index={index}
               />
             </li>
