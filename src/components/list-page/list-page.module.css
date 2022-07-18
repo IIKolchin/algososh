@@ -1,0 +1,40 @@
+.grid {
+    width: 952px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: 'a b c d e'
+                        'f g g h h' ;
+    gap: 12px;
+}
+
+.value {
+    grid-area: a;
+}
+
+.addHead {
+    grid-area: b;
+}
+
+.addTail {
+    grid-area: c;
+}
+
+.delHead {
+    grid-area: d;
+}
+
+.delTail {
+    grid-area: e;
+}
+
+.index {
+    grid-area: f;
+}
+
+.addIndex {
+    grid-area: g;
+}
+
+.delIndex {
+    grid-area: h;
+}

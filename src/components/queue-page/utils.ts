@@ -5,6 +5,9 @@ export interface IQueue<T> {
   getHead: () => T | null;
   getTail: () => T | null;
   getLength: () => number;
+  getHeadIndex: () => number;
+  getTailIndex: () => number;
+  clear: () => void;
 }
 
 export class Queue<T> implements IQueue<T> {
@@ -53,7 +56,7 @@ export class Queue<T> implements IQueue<T> {
   getTail = (): T | null => this.container[this.tail - 1];
 
   getLength = (): number => this.tail;
-  
+
   getHeadIndex = () => this.head;
 
   getTailIndex = () => this.tail - 1;
@@ -63,6 +66,5 @@ export class Queue<T> implements IQueue<T> {
     this.head = 0;
     this.tail = 0;
     this.container = Array(this.size);
-  }
-
+  };
 }
