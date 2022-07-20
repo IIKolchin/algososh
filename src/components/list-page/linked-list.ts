@@ -42,7 +42,7 @@ export class LinkedList<T> implements ILinkedList<T> {
   }
 
   append(element: T) {
-    let node = new LinkedListNode(element);
+    const node = new LinkedListNode(element);
 
     if (this.size === 0) {
       this.head = node;

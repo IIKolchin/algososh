@@ -1,5 +1,3 @@
-import { ElementStates } from "../types/element-states";
-
 export const swap = <T>(arr: T[], i: number, j: number) => {
     const tmp = arr[i];    
     arr[i] = arr[j];
@@ -19,7 +17,7 @@ export const delay = (delayInms: number) => {
     minLength: number,
     maxValue: number
   ) => {
-    let length =
+    const length =
       Math.floor(Math.random() * (maxLength + 1 - minLength)) + minLength;
     if (length >= 3 && length <= 17) {
       return Array.apply(null, Array(length)).map(function () {

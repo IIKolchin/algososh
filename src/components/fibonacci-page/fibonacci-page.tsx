@@ -23,13 +23,13 @@ export const FibonacciPage: React.FC = () => {
 
   const fibonacciRender = async (n: number) => {
     const arrFib = getFibonacciNumbers(n);
-    const arrRender: any = [];
+    const arrRender: Array<number | undefined> = [];
     while (arrFib.length !== 0) {
       setIsLoader(true);
       setIsDisabled(true);
       await delay(SHORT_DELAY_IN_MS);
       arrRender.push(arrFib.shift());
-      setNumberArr([...arrRender]);
+      setNumberArr([...arrRender as number[]]);
     }
     setIsLoader(false);
     setIsDisabled(false);
