@@ -14,3 +14,17 @@ export const delay = (delayInms: number) => {
     });
   }
 
+  export const randomArr = (
+    maxLength: number,
+    minLength: number,
+    maxValue: number
+  ) => {
+    let length =
+      Math.floor(Math.random() * (maxLength + 1 - minLength)) + minLength;
+    if (length >= 3 && length <= 17) {
+      return Array.apply(null, Array(length)).map(function () {
+        return Math.round(Math.random() * maxValue);
+      });
+    }
+    return Array;
+  };

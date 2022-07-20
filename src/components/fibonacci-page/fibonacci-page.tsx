@@ -1,4 +1,4 @@
-import React, { ChangeEvent, SetStateAction, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import styles from './fibonacci-page.module.css';
 import { SolutionLayout } from '../ui/solution-layout/solution-layout';
 import { Input } from '../ui/input/input';

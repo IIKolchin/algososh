@@ -7,7 +7,7 @@ import { Circle } from '../ui/circle/circle';
 import { Input } from '../ui/input/input';
 import { SolutionLayout } from '../ui/solution-layout/solution-layout';
 import styles from './queue-page.module.css';
-import { Queue } from './utils';
+import { Queue } from './queue';
 
 type Tarr = {
   value?: string;

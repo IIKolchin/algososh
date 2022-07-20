@@ -3,7 +3,7 @@ import { SolutionLayout } from '../ui/solution-layout/solution-layout';
 import styles from './stack-page.module.css';
 import { Input } from '../ui/input/input';
 import { Button } from '../ui/button/button';
-import { Stack } from './utils';
+import { Stack } from './stack';
 import { Circle } from '../ui/circle/circle';
 import { ElementStates } from '../../types/element-states';
 import { delay } from '../../utils/utils';

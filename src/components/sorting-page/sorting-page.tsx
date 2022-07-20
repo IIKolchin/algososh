@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { SHORT_DELAY_IN_MS } from '../../constants/delays';
 import { Direction } from '../../types/direction';
 import { ElementStates } from '../../types/element-states';
+import { randomArr } from '../../utils/utils';
 import { Button } from '../ui/button/button';
 import { Column } from '../ui/column/column';
 import { RadioInput } from '../ui/radio-input/radio-input';
@@ -10,7 +11,6 @@ import styles from './sorting-page.module.css';
 import {
   bubbleSortAscending,
   bubbleSortDescending,
-  randomArr,
   selectionSortAscending,
   selectionSortDescending,
 } from './utils';
