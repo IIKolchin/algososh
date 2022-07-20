@@ -141,7 +141,6 @@ export const ListPage: React.FC = () => {
   const deleteFromHead = async () => {
     setInProgress(true);
     setDeletingFromHead(true);
-    linkedList!.print();
 
     const deletedElement = linkedList!.deleteByIndex(0);
 
@@ -167,8 +166,6 @@ export const ListPage: React.FC = () => {
   const deleteFromTail = async () => {
     setInProgress(true);
     setDeletingFromTail(true);
-
-    linkedList!.print();
 
     const tailIdx = linkedList!.getSize() - 1;
 
@@ -198,12 +195,10 @@ export const ListPage: React.FC = () => {
     setInProgress(true);
     setAddingByIdx(true);
     setInputValue('');
-    linkedList!.print();
 
     linkedList!.addByIndex(inputValue, index);
 
     const newValue = linkedList!.getNodeByIndex(index);
-    linkedList!.print();
 
     for (let i = 0; i <= index!; i++) {
       linkedListArr[i] = {
@@ -244,10 +239,7 @@ export const ListPage: React.FC = () => {
     setDeletingByIdx(true);
     setInProgress(true);
 
-    linkedList!.print();
-
     const deletedElement = linkedList!.deleteByIndex(index);
-    linkedList!.print();
 
     for (let i = 0; i <= index!; i++) {
       linkedListArr[i].color = ElementStates.Changing;

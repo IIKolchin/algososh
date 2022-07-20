@@ -1,7 +1,5 @@
 import React, {
   ChangeEvent,
-  FormEventHandler,
-  SetStateAction,
   useState,
 } from 'react';
 import styles from './string.module.css';
@@ -9,9 +7,9 @@ import { Button } from '../ui/button/button';
 import { Input } from '../ui/input/input';
 import { SolutionLayout } from '../ui/solution-layout/solution-layout';
 import { Circle } from '../ui/circle/circle';
-import { ElementStates } from '../../types/element-states';
 import { delay, swap } from '../../utils/utils';
 import { DELAY_IN_MS } from '../../constants/delays';
+import { changeColor } from './utils';
 
 export const StringComponent: React.FC = () => {
   const [input, setInput] = useState('');
@@ -49,16 +47,6 @@ export const StringComponent: React.FC = () => {
     setIsDisabled(false);
   };
 
-  const changeColor = (start: number, end: number, index: number) => {
-    if (start === index || end === index) {
-      return ElementStates.Changing;
-    } else if (start >= index || end <= index) {
-      return ElementStates.Modified;
-    } else if (start === 1000 || end === 1000) {
-      return ElementStates.Modified;
-    }
-  };
-  
   return (
     <SolutionLayout title='Строка'>
       <div className={styles.container}>
@@ -69,6 +57,7 @@ export const StringComponent: React.FC = () => {
           value={input}
           name={'text'}
           isLimitText
+          disabled={isDisabled}
         />
         <Button
           text='Развернуть'

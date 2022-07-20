@@ -86,8 +86,6 @@ export const QueuePage: React.FC = () => {
     await delay(SHORT_DELAY_IN_MS);
     arrQ[q.getTailIndex()].color = ElementStates.Default;
 
-    console.log(q);
-
     setIsDisabledAdd(true);
     setIsLoaderAdd(false);
     setIsDisabledInput(false);
