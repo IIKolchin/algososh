@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import styles from './fibonacci-page.module.css';
 import { SolutionLayout } from '../ui/solution-layout/solution-layout';
 import { Input } from '../ui/input/input';
@@ -13,13 +13,22 @@ export const FibonacciPage: React.FC = () => {
   const [numberArr, setNumberArr] = useState<number[]>([]);
   const [isLoader, setIsLoader] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [isDisabledButton, setIsDisabledButton] = useState(true);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
-    if(Number(e.target.value) > 19) {
+    if (Number(e.target.value) > 19) {
       setInput('19');
     }
   };
+
+  useEffect(() => {
+    if (input.length !== 0) {
+      setIsDisabledButton(false);
+    } else {
+      setIsDisabledButton(true);
+    }
+  }, [input]);
 
   const fibonacciRender = async (n: number) => {
     const arrFib = getFibonacciNumbers(n);
@@ -29,13 +38,16 @@ export const FibonacciPage: React.FC = () => {
       setIsDisabled(true);
       await delay(SHORT_DELAY_IN_MS);
       arrRender.push(arrFib.shift());
-      setNumberArr([...arrRender as number[]]);
+      setNumberArr([...(arrRender as number[])]);
     }
     setIsLoader(false);
     setIsDisabled(false);
   };
 
-  const style = numberArr.length > 9 ? {justifyContent: 'start'} : {justifyContent: 'center'}
+  const style =
+    numberArr.length > 9
+      ? { justifyContent: 'start' }
+      : { justifyContent: 'center' };
 
   return (
     <SolutionLayout title='Последовательность Фибоначчи'>
@@ -54,6 +66,7 @@ export const FibonacciPage: React.FC = () => {
           text='Раcсчитать'
           onClick={() => fibonacciRender(Number(input))}
           isLoader={isLoader}
+          disabled={isDisabledButton}
         />
       </div>
       <ul className={styles.str} style={style}>
