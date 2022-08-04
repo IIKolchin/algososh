@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import styles from './string.module.css';
 import { Button } from '../ui/button/button';
 import { Input } from '../ui/input/input';
@@ -13,10 +13,19 @@ export const StringComponent: React.FC = () => {
   const [secondIndex, setSecondIndex] = useState<number>();
   const [isLoader, setIsLoader] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [isDisabledButton, setIsDisabledButton] = useState(true);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
+
+  useEffect(() => {
+    if (input.length !== 0) {
+      setIsDisabledButton(false);
+    } else {
+      setIsDisabledButton(true);
+    }
+  }, [input]);
 
   return (
     <SolutionLayout title='Строка'>
@@ -43,6 +52,7 @@ export const StringComponent: React.FC = () => {
             )
           }
           isLoader={isLoader}
+          disabled={isDisabledButton}
         />
       </div>
       <ul className={styles.str}>
