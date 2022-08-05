@@ -4,7 +4,7 @@ beforeEach(() => {
 
 const arr = [0, 1, 1, 2];
 
-describe('String component', () => {
+describe('Fibonacci component', () => {
   it('if input clear, button disabled', () => {
     cy.get('input').clear;
     cy.get('button').should('be.disabled');
