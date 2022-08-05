@@ -44,11 +44,22 @@ describe('Stack component', () => {
     cy.get('div[class*="circle_circle__xMxdD"').should('have.length', 2);
     cy.get('button').eq(2).click();
     cy.get('div[class*="circle_circle__xMxdD"').should('have.length', 1);
+
     cy.get('div[class*="circle_circle__xMxdD"').should(($div) => {
       expect($div).to.have.text('3');
+      expect($div)
+        .to.have.attr('class')
+        .to.equal('circle_circle__xMxdD   ' + changingColor);
+    });
+    cy.wait(1000);
+    cy.get('div[class*="circle_circle__xMxdD"').should(($div) => {
+      expect($div).to.have.text('3');
+      expect($div)
+        .to.have.attr('class')
+        .to.equal('circle_circle__xMxdD   ' + defaultColor);
     });
   });
-  
+
   it('clearing the stack by click', () => {
     cy.get('input').type('3');
     cy.get('button').eq(1).click();

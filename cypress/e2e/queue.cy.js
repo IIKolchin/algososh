@@ -76,9 +76,21 @@ describe('Queue component', () => {
     cy.get('button').eq(2).click();
 
     cy.get('div[class*="circle_circle__xMxdD"')
+    .first()
+    .should(($div) => {
+        expect($div)
+        .to.have.attr('class')
+        .to.equal('circle_circle__xMxdD   ' + changingColor);
+    });
+    cy.wait(1000);
+
+    cy.get('div[class*="circle_circle__xMxdD"')
       .first()
       .should(($div) => {
         expect($div).to.have.text('');
+        expect($div)
+        .to.have.attr('class')
+        .to.equal('circle_circle__xMxdD   ' + defaultColor); 
       });
     cy.get('div[class*="circle_head__E38zo"')
       .eq(1)
