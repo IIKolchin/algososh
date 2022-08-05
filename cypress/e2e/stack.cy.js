@@ -11,7 +11,7 @@ const data = [
 ];
 
 describe('Stack component', () => {
-  it('if input clear, button disabled', () => {
+  it('if input clear, add button disabled', () => {
     cy.get('input').clear;
     cy.get('button').should('be.disabled');
   });
