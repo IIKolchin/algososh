@@ -14,7 +14,7 @@ describe('Fibonacci component', () => {
     cy.get('input').type('3');
     cy.get('button').eq(1).click();
 
-    cy.get('div[class*="circle_circle__xMxdD"').each(($el, index) => {
+    cy.get('div[class*="circle_circle"').each(($el, index) => {
       expect($el).to.have.text(arr[index]);
     });
   });

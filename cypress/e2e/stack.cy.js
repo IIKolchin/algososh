@@ -2,8 +2,8 @@ beforeEach(() => {
   cy.visit('http://localhost:3000/stack');
 });
 
-const defaultColor = 'circle_default__cxxRQ';
-const changingColor = 'circle_changing__gSgfT';
+const defaultColor = 'circle_default';
+const changingColor = 'circle_changing';
 
 const data = [
   [{ value: '3', color: changingColor }],
@@ -20,16 +20,14 @@ describe('Stack component', () => {
     cy.get('input').type('3');
     cy.get('button').eq(1).click();
 
-    cy.get('div[class*="circle_absolute__puiG8"').should(($div) => {
+    cy.get('div[class*="circle_absolute"').should(($div) => {
       expect($div).to.have.text('top');
     });
 
     data.forEach((el) => {
-      cy.get('div[class*="circle_circle__xMxdD"').each(($el, index) => {
+      cy.get('div[class*="circle_circle"').each(($el, index) => {
         expect($el).to.have.text(el[index].value);
-        expect($el)
-          .to.have.attr('class')
-          .to.equal('circle_circle__xMxdD   ' + el[index].color);
+        expect($el).to.have.attr('class').contains(el[index].color);
       });
       cy.wait(1000);
     });
@@ -41,22 +39,18 @@ describe('Stack component', () => {
     cy.get('input').type('1');
     cy.get('button').eq(1).click();
 
-    cy.get('div[class*="circle_circle__xMxdD"').should('have.length', 2);
+    cy.get('div[class*="circle_circle"').should('have.length', 2);
     cy.get('button').eq(2).click();
-    cy.get('div[class*="circle_circle__xMxdD"').should('have.length', 1);
+    cy.get('div[class*="circle_circle"').should('have.length', 1);
 
-    cy.get('div[class*="circle_circle__xMxdD"').should(($div) => {
+    cy.get('div[class*="circle_circle"').should(($div) => {
       expect($div).to.have.text('3');
-      expect($div)
-        .to.have.attr('class')
-        .to.equal('circle_circle__xMxdD   ' + changingColor);
+      expect($div).to.have.attr('class').contains(changingColor);
     });
     cy.wait(1000);
-    cy.get('div[class*="circle_circle__xMxdD"').should(($div) => {
+    cy.get('div[class*="circle_circle"').should(($div) => {
       expect($div).to.have.text('3');
-      expect($div)
-        .to.have.attr('class')
-        .to.equal('circle_circle__xMxdD   ' + defaultColor);
+      expect($div).to.have.attr('class').contains(defaultColor);
     });
   });
 
@@ -65,10 +59,8 @@ describe('Stack component', () => {
     cy.get('button').eq(1).click();
     cy.get('input').type('1');
     cy.get('button').eq(1).click();
-
-    cy.get('div[class*="circle_circle__xMxdD"').should('have.length', 2);
+    cy.get('div[class*="circle_circle"').should('have.length', 2);
     cy.get('button').eq(3).click();
-
-    cy.get('div[class*="circle_circle__xMxdD"').should('have.length', 0);
+    cy.get('div[class*="circle_circle"').should('have.length', 0);
   });
 });

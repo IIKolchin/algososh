@@ -2,9 +2,9 @@ beforeEach(() => {
   cy.visit('http://localhost:3000/recursion');
 });
 
-const defaultColor = 'circle_default__cxxRQ';
-const changingColor = 'circle_changing__gSgfT';
-const modifiedColor = 'circle_modified__-tITb';
+const defaultColor = 'circle_default';
+const changingColor = 'circle_changing';
+const modifiedColor = 'circle_modified';
 
 const data = [
   [
@@ -48,13 +48,10 @@ describe('String component', () => {
     cy.get('button').eq(1).click();
 
     data.forEach((el) => {
-      cy.get('div[class*="circle_circle__xMxdD"')
-        .each(($el, index) => {
-          expect($el).to.have.text(el[index].value);
-          expect($el)
-            .to.have.attr('class')
-            .to.equal('circle_circle__xMxdD   ' + el[index].color);
-        });
+      cy.get('div[class*="circle_circle"').each(($el, index) => {
+        expect($el).to.have.text(el[index].value);
+        expect($el).to.have.attr('class').contains(el[index].color);
+      });
       cy.wait(2000);
     });
   });
