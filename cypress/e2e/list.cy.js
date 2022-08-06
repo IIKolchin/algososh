@@ -17,7 +17,7 @@ describe('List component', () => {
   });
 
   it('render default list', () => {
-    cy.get('div[class*="circle_circle"').should('have.length', 5);
+    cy.get('div[class^="circle_circle"').should('have.length', 5);
     cy.get('div[class*="circle_head"')
       .first()
       .should(($div) => {
@@ -39,14 +39,14 @@ describe('List component', () => {
       expect($div).to.have.attr('class').contains('topCircle');
     });
     cy.wait(500);
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .first()
       .should(($div) => {
         expect($div).to.have.text('1');
         expect($div).to.have.attr('class').contains(modifiedColor);
       });
     cy.wait(500);
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .first()
       .should(($div) => {
         expect($div).to.have.text('1');
@@ -69,7 +69,7 @@ describe('List component', () => {
       expect($div).to.have.text('1');
       expect($div).to.have.attr('class').contains('topCircle');
     });
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .first()
       .should(($div) => {
         expect($div).to.have.attr('class').contains(changingColor);
@@ -80,7 +80,7 @@ describe('List component', () => {
       expect($div).to.have.text('1');
       expect($div).to.have.attr('class').contains('topCircle');
     });
-    cy.get('div[class*="circle_circle"').should(($div) => {
+    cy.get('div[class^="circle_circle"').should(($div) => {
       expect($div).to.have.attr('class').contains(changingColor);
     });
 
@@ -89,7 +89,7 @@ describe('List component', () => {
       expect($div).to.have.text('1');
       expect($div).to.have.attr('class').contains('topCircle');
     });
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .eq(2)
       .should(($div) => {
         expect($div).to.have.attr('class').contains(changingColor);
@@ -100,7 +100,7 @@ describe('List component', () => {
       expect($div).to.have.text('1');
       expect($div).to.have.attr('class').contains('topCircle');
     });
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .eq(3)
       .should(($div) => {
         expect($div).to.have.attr('class').contains(changingColor);
@@ -111,14 +111,14 @@ describe('List component', () => {
       expect($div).to.have.text('1');
       expect($div).to.have.attr('class').contains('topCircle');
     });
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .eq(4)
       .should(($div) => {
         expect($div).to.have.attr('class').contains(changingColor);
       });
 
     cy.wait(500);
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .eq(5)
       .should(($div) => {
         expect($div).to.have.text('1');
@@ -126,7 +126,7 @@ describe('List component', () => {
       });
     cy.wait(500);
 
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .eq(5)
       .should(($div) => {
         expect($div).to.have.text('1');
@@ -150,31 +150,31 @@ describe('List component', () => {
       expect($div).to.have.text('2');
       expect($div).to.have.attr('class').contains('topCircle');
     });
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .first()
       .should(($div) => {
         expect($div).to.have.attr('class').contains(changingColor);
       });
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .eq(1)
       .should(($div) => {
         expect($div).to.have.text('2');
         expect($div).to.have.attr('class').contains(modifiedColor);
       });
     cy.wait(500);
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .eq(1)
       .should(($div) => {
         expect($div).to.have.text('2');
         expect($div).to.have.attr('class').contains(defaultColor);
       });
-    cy.get('div[class*="circle_circle"').should('have.length', 6);
+    cy.get('div[class^="circle_circle"').should('have.length', 6);
   });
 
   it('delete element from head', () => {
     cy.get('button').eq(3).click();
 
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .first()
       .should(($div) => {
         expect($div).to.have.text('');
@@ -186,18 +186,18 @@ describe('List component', () => {
         expect($div).to.have.attr('class').contains('lowCircle');
       });
     cy.wait(500);
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .first()
       .should(($div) => {
         expect($div).to.have.attr('class').contains(modifiedColor);
       });
     cy.wait(500);
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .first()
       .should(($div) => {
         expect($div).to.have.attr('class').contains(defaultColor);
       });
-    cy.get('div[class*="circle_circle"').should('have.length', 4);
+    cy.get('div[class^="circle_circle"').should('have.length', 4);
   });
 
   it('delete element from tail', () => {
@@ -206,7 +206,7 @@ describe('List component', () => {
     cy.get('div[class*="lowCircle"').last().should(($div) => {
       expect($div).to.have.attr('class').contains('lowCircle');
     });
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .eq(4)
       .should(($div) => {
         expect($div).to.have.text('');
@@ -214,35 +214,35 @@ describe('List component', () => {
       });
 
     cy.wait(500);
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .last()
       .should(($div) => {
         expect($div).to.have.attr('class').contains(modifiedColor);
       });
     cy.wait(500);
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .last()
       .should(($div) => {
         expect($div).to.have.attr('class').contains(defaultColor);
       });
-    cy.get('div[class*="circle_circle"').should('have.length', 4);
+    cy.get('div[class^="circle_circle"').should('have.length', 4);
   });
 
   it('delete by index', () => {
     cy.get('input').eq(1).type('1');
     cy.get('button').eq(6).click();
 
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .first()
       .should(($div) => {
         expect($div).to.have.attr('class').contains(changingColor);
       });
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .eq(1)
       .should(($div) => {
         expect($div).to.have.attr('class').contains(changingColor);
       });
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .eq(1)
       .should(($div) => {
         expect($div).to.have.text('');
@@ -250,6 +250,6 @@ describe('List component', () => {
     cy.get('div[class*="lowCircle"').first().should(($div) => {
       expect($div).to.have.attr('class').contains('lowCircle');
     });
-    cy.get('div[class*="circle_circle"').should('have.length', 4);
+    cy.get('div[class^="circle_circle"').should('have.length', 4);
   });
 });

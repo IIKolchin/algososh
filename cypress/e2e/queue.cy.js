@@ -29,7 +29,7 @@ describe('Queue component', () => {
     });
 
     data.forEach((el) => {
-      cy.get('div[class*="circle_circle"')
+      cy.get('div[class^="circle_circle"')
         .first()
         .each(($el, index) => {
           expect($el).to.have.text(el[index].value);
@@ -73,14 +73,14 @@ describe('Queue component', () => {
       });
     cy.get('button').eq(2).click();
 
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .first()
       .should(($div) => {
         expect($div).to.have.attr('class').contains(changingColor);
       });
     cy.wait(1000);
 
-    cy.get('div[class*="circle_circle"')
+    cy.get('div[class^="circle_circle"')
       .first()
       .should(($div) => {
         expect($div).to.have.text('');
@@ -103,7 +103,7 @@ describe('Queue component', () => {
 
     cy.get('button').eq(3).click();
 
-    cy.get('div[class*="circle_circle"').each(($el, index) => {
+    cy.get('div[class^="circle_circle"').each(($el, index) => {
       expect($el).to.have.text('');
       expect($el).to.have.attr('class').contains(defaultColor);
     });

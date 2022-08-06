@@ -17,7 +17,7 @@ import {
 
 export const SortingPage: React.FC = () => {
 
-  const [radioChoice, setRadioChoice] = useState(true);
+  const [radioChoice, setRadioChoice] = useState(false);
   const [radioBubble, setRadioBubble] = useState(false);
   const [blocks, setBlocks] = useState<number[]>([]);
   const [compare, setCompare] = useState<number[]>([]);
@@ -33,6 +33,7 @@ export const SortingPage: React.FC = () => {
 
   useEffect(() => {
     createArr();
+    setRadioChoice(true)
   }, [randomArr]);
 
   const selectRadioChoice = () => {

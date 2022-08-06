@@ -25,7 +25,7 @@ describe('Stack component', () => {
     });
 
     data.forEach((el) => {
-      cy.get('div[class*="circle_circle"').each(($el, index) => {
+      cy.get('div[class^="circle_circle"').each(($el, index) => {
         expect($el).to.have.text(el[index].value);
         expect($el).to.have.attr('class').contains(el[index].color);
       });
@@ -39,16 +39,16 @@ describe('Stack component', () => {
     cy.get('input').type('1');
     cy.get('button').eq(1).click();
 
-    cy.get('div[class*="circle_circle"').should('have.length', 2);
+    cy.get('div[class^="circle_circle"').should('have.length', 2);
     cy.get('button').eq(2).click();
-    cy.get('div[class*="circle_circle"').should('have.length', 1);
+    cy.get('div[class^="circle_circle"').should('have.length', 1);
 
-    cy.get('div[class*="circle_circle"').should(($div) => {
+    cy.get('div[class^="circle_circle"').should(($div) => {
       expect($div).to.have.text('3');
       expect($div).to.have.attr('class').contains(changingColor);
     });
     cy.wait(1000);
-    cy.get('div[class*="circle_circle"').should(($div) => {
+    cy.get('div[class^="circle_circle"').should(($div) => {
       expect($div).to.have.text('3');
       expect($div).to.have.attr('class').contains(defaultColor);
     });
@@ -59,8 +59,8 @@ describe('Stack component', () => {
     cy.get('button').eq(1).click();
     cy.get('input').type('1');
     cy.get('button').eq(1).click();
-    cy.get('div[class*="circle_circle"').should('have.length', 2);
+    cy.get('div[class^="circle_circle"').should('have.length', 2);
     cy.get('button').eq(3).click();
-    cy.get('div[class*="circle_circle"').should('have.length', 0);
+    cy.get('div[class^="circle_circle"').should('have.length', 0);
   });
 });

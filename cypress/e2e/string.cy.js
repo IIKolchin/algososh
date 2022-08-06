@@ -48,7 +48,7 @@ describe('String component', () => {
     cy.get('button').eq(1).click();
 
     data.forEach((el) => {
-      cy.get('div[class*="circle_circle"').each(($el, index) => {
+      cy.get('div[class^="circle_circle"').each(($el, index) => {
         expect($el).to.have.text(el[index].value);
         expect($el).to.have.attr('class').contains(el[index].color);
       });
