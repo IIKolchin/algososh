@@ -22,5 +22,6 @@
 ### `npm install && npm start`
 Запускается приложение в режиме разработки.\
 Открывается [http://localhost:3000](http://localhost:3000) чтобы просмотреть его в браузере.
+
 Запуск тестов
 ### `npm test && npx cypress open`
