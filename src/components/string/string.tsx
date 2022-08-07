@@ -1,15 +1,10 @@
-import React, {
-  ChangeEvent,
-  useState,
-} from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import styles from './string.module.css';
 import { Button } from '../ui/button/button';
 import { Input } from '../ui/input/input';
 import { SolutionLayout } from '../ui/solution-layout/solution-layout';
 import { Circle } from '../ui/circle/circle';
-import { delay, swap } from '../../utils/utils';
-import { DELAY_IN_MS } from '../../constants/delays';
-import { changeColor } from './utils';
+import { changeColor, reverseString } from './utils';
 
 export const StringComponent: React.FC = () => {
   const [input, setInput] = useState('');
@@ -18,34 +13,19 @@ export const StringComponent: React.FC = () => {
   const [secondIndex, setSecondIndex] = useState<number>();
   const [isLoader, setIsLoader] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [isDisabledButton, setIsDisabledButton] = useState(true);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
 
-  const reverseWord = async (str: string) => {
-    const wordArray = str.split('');
-    setWordArr(wordArray);
-
-    let start = 0;
-    let end = wordArray.length - 1;
-    while (start <= end) {
-      setIsLoader(true);
-      setIsDisabled(true);
-      setFirstIndex(start);
-      setSecondIndex(end);
-      await delay(DELAY_IN_MS);
-      swap(wordArray, start, end);
-      setWordArr([...wordArray]);
-      await delay(DELAY_IN_MS);
-      start++;
-      end--;
+  useEffect(() => {
+    if (input.length !== 0) {
+      setIsDisabledButton(false);
+    } else {
+      setIsDisabledButton(true);
     }
-    setFirstIndex(100);
-    setSecondIndex(100);
-    setIsLoader(false);
-    setIsDisabled(false);
-  };
+  }, [input]);
 
   return (
     <SolutionLayout title='Строка'>
@@ -61,8 +41,18 @@ export const StringComponent: React.FC = () => {
         />
         <Button
           text='Развернуть'
-          onClick={() => reverseWord(input)}
+          onClick={() =>
+            reverseString(
+              input,
+              setWordArr,
+              setIsLoader,
+              setIsDisabled,
+              setFirstIndex,
+              setSecondIndex
+            )
+          }
           isLoader={isLoader}
+          disabled={isDisabledButton}
         />
       </div>
       <ul className={styles.str}>

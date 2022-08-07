@@ -183,10 +183,10 @@ export const ListPage: React.FC = () => {
     await sortWithDelay([...linkedListArr]);
 
     linkedListArr.pop();
-    linkedListArr[linkedListArr.length - 2].color = ElementStates.Modified;
+    linkedListArr[linkedListArr.length - 1].color = ElementStates.Modified;
     await sortWithDelay([...linkedListArr]);
 
-    linkedListArr[linkedListArr.length - 2].color = ElementStates.Default;
+    linkedListArr[linkedListArr.length - 1].color = ElementStates.Default;
     setInProgress(false);
     setDeletingFromTail(false);
   };
