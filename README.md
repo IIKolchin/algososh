@@ -1,27 +1,27 @@
-# Проектная работа. МБОУ АЛГОСОШ им. Фибоначчи
+# Project work. MBOU SOSH im. Fibonacci
 
 
-## Обзор
+## Overview
 
-Приложени представляет собой визуализатор алгоритмов.
+The application is an algorithm visualizer.
 
-## Функционал
+## Functional
 
-Возможность визуализировать работу различных алгоритмов и структур данных, таких как: строка, последовательность Фибоначчи, сортировка массивов, стек, очередь и связный список
+The ability to visualize the operation of various algorithms and data structures, such as: string, Fibonacci sequence, array sorting, stack, queue and linked list
 
-## Используемые технологии
-* TypeScript
+## Technologies used
+* Typewritten text
 * React
-* CSS Modules
-* Jest
+* CSS modules
+* * Just
 * Cypress
 
-# Запуск
+# Launch
 
-В папке проекта вы можете запустить:
-### `npm install && npm start`
-Запускается приложение в режиме разработки.\
-Открывается [http://localhost:3000](http://localhost:3000) чтобы просмотреть его в браузере.
+In the project folder you can run:
+### `install npm && launch npm`
+The application is launched in development mode.\
+Opens [http://localhost:3000 ](http://localhost:3000 ) to view it in the browser.
 
-Запуск тестов
-### `npm test && npx cypress open`
+Running tests
+### `### `the npm && npx cypress test is open`
