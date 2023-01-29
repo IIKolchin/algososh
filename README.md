@@ -10,10 +10,10 @@ The application is an algorithm visualizer.
 The ability to visualize the operation of various algorithms and data structures, such as: string, Fibonacci sequence, array sorting, stack, queue and linked list
 
 ## Technologies used
-* Typewritten text
+* Typescript
 * React
 * CSS modules
-* * Just
+* Jest
 * Cypress
 
 # Launch
